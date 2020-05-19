@@ -1,19 +1,27 @@
 package br.com.quarkus.domain.model;
 
-import javax.persistence.Entity;
+import java.util.List;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import org.bson.types.ObjectId;
 
-@Entity
-public class Categoria extends PanacheEntity {
+import io.quarkus.mongodb.panache.MongoEntity;
+import io.quarkus.mongodb.panache.PanacheMongoEntity;
+import lombok.Getter;
+import lombok.Setter;
+
+@MongoEntity
+@Getter
+@Setter
+public class Categoria extends PanacheMongoEntity {
 
     private String nome;
 
-    public String getNome() {
-        return nome;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
+    public List<Categoria> listar() {
+        return listAll();
     }
 
+    public Categoria porId(ObjectId objectId) {
+        return findById(objectId);
+    }
+    
 }
