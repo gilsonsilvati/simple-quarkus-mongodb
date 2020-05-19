@@ -13,5 +13,15 @@ public class ExampleResource {
     public String hello() {
         return "hello";
     }
-    
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("outro-hello")
+    public Categoria outroHello() {
+        var categoria = new Categoria();
+        categoria.setNome("Nome da categoria");
+
+        return categoria;
+    }
+
 }
