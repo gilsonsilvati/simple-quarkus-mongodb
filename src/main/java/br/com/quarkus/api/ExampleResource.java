@@ -1,11 +1,13 @@
-package br.com.quarkus;
+package br.com.quarkus.api;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@Path("/hello")
+import br.com.quarkus.domain.model.Categoria;
+
+@Path("hello")
 public class ExampleResource {
 
     @GET
